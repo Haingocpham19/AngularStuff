@@ -55,11 +55,11 @@ namespace RestaurantManagement.Controllers
             }
             return new JsonResult("Thêm mới thành công!");
         }
-        [HttpPut]
-        public JsonResult Put(ThucDon thucDon)
+        [HttpPut("{id}")]
+        public JsonResult Put(ThucDon thucDon,int id)
         {
             string query = @"Update ThucDons set
-            TenThucDon = '" +thucDon.TenThucDon+"' where Id = '"+thucDon.Id+"'";
+            TenThucDon = '" +thucDon.TenThucDon+"' where Id = '" + id + "'";
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("HAINGOCPHAM");
             SqlDataReader myReader;
@@ -76,10 +76,10 @@ namespace RestaurantManagement.Controllers
             }
             return new JsonResult("Cập nhật thành công!");
         }
-        [HttpDelete]
-        public JsonResult Delete(ThucDon thucDon)
+        [HttpDelete("{id}")]
+        public JsonResult Delete(int id)
         {
-            string query = @"Delete from ThucDons where Id = "+thucDon.Id+"";
+            string query = @"Delete from ThucDons where Id = "+ id + "";
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("HAINGOCPHAM");
             SqlDataReader myReader;

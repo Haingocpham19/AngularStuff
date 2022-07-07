@@ -16,13 +16,13 @@ export class SharedService {
     return this.http.get<any>(this.ApiUrl+'/thucDon');
   }
   themThucDon(val:any):Observable<any[]>{
-    return this.http.post<any>(this.ApiUrl+'/thucDon',val);
+    return this.http.post<any>(this.ApiUrl+'/thucDon' ,val);
   }
-  suaThucDon(val:any):Observable<any[]>{
-    return this.http.put<any>(this.ApiUrl+'/thucDon',val);
+  suaThucDon(val:any,id:number):Observable<any[]>{
+    return this.http.put<any>(this.ApiUrl+'/thucDon/'+id,val);
   }
-  xoaThucDon(val:any):Observable<any>{
-    return this.http.delete<any>(this.ApiUrl+'/thucDon',val);
+  xoaThucDon(id:number):Observable<any>{
+    return this.http.delete<any>(this.ApiUrl+'/thucDon/'+ id);
   }
   getComboxThucDon():Observable<any>{
     return this.http.get<any>(this.ApiUrl+'/thucDon/getComBoboxThucDon');

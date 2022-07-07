@@ -17,15 +17,13 @@ namespace RestaurantManagement.Controllers
     public class MonAnController : ControllerBase
     {
         private readonly RMDBContext _context;
-        private readonly ILogger _logger;
         private readonly IConfiguration _configuration;
         private readonly IWebHostEnvironment _env;
 
-        public MonAnController(RMDBContext context, IWebHostEnvironment env, ILogger logger, IConfiguration configuration)
+        public MonAnController(RMDBContext context, IWebHostEnvironment env, IConfiguration configuration)
         {
             _context = context;
             _env = env;
-            _logger = logger;
             _configuration = configuration;
         }
         // GET: api/MonAn

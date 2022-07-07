@@ -10,8 +10,7 @@ export class DsThucdonComponent implements OnInit {
 
   constructor(private service:SharedService) { }
 
-  thucDon:any;
-  tenThucDon:any;
+  dataItem:any;
   DanhSachThucDon:any=[];
 
   ngOnInit(): void {
@@ -25,8 +24,14 @@ export class DsThucdonComponent implements OnInit {
   }
 
   addOrUpdateThucDon(thucDon?:any):void{
-    debugger
-    this.thucDon=thucDon;
+    this.dataItem=thucDon;    
+  }
+
+  deleteThucDon(id:number):void{
+    this.service.xoaThucDon(id).subscribe(data =>{
+      alert(data);
+      this.refresh();
+    });
   }
 
 }
