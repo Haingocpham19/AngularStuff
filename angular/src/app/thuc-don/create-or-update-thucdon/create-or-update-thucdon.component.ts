@@ -8,13 +8,19 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class CreateOrUpdateThucdonComponent implements OnInit {
 
-  tenThucDon:any;
   @Input() thucDon:any;
+  tenThucDon:any;
+  title:any;
 
   constructor(private service: SharedService) { }
 
   ngOnInit(): void {
-    
+    this.tenThucDon = this.thucDon.tenThucDon;
+    if(this.thucDon){
+      this.title = "Sửa thực đơn";
+    }else{
+      this.title = "Thêm thực đơn";
+    }
   }
 
   addThucDon(){
@@ -26,11 +32,13 @@ export class CreateOrUpdateThucdonComponent implements OnInit {
     });
   }
 
-  suaThucDon(thucDon:any){
+  editThucDon(thucDon:any){
     var val = {
-      tenThucDon:this.tenThucDon
+      id:thucDon.Id,
+      tenThucDon:this.thucDon.tenThucDon
     };
-    this.thucDon=thucDon;
-    alert("đã sửa");
+    this.service.suaThucDon(val,thucDon.Id).subscribe(data =>{
+      alert(data);
+    });
   }
 }
