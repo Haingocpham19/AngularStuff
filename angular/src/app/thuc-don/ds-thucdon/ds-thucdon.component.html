@@ -1,0 +1,48 @@
+
+<!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách thực đơn</h6>
+        <div class="d-flex mt-3">
+            <button data-toggle="modal" data-target="#exampleModal"  style="width:150px;background-color:#3498db;color:#fff;border:none;border-radius: 2px;" (click)="addOrUpdateThucDon()">Thêm thực đơn</button>
+        </div>    
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Tên thực đơn</th>       
+                        <th>Thao tác</th>         
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let thucdon of DanhSachThucDon">
+                        <td>{{thucdon.Id}} </td>
+                        <td>{{thucdon.TenThucDon}}</td>         
+                        <td>
+                            <button type="button" class="btn btn-primary mr-3" data-toggle="modal" data-target="#exampleModal" (click)="addOrUpdateThucDon(thucdon)">Sửa</button>
+                            <button type="button" class="btn btn-danger">Xóa</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <app-create-or-update-thucdon [thucDon]="thucDon"></app-create-or-update-thucdon>     
+      </div>
+    </div>
+  </div>

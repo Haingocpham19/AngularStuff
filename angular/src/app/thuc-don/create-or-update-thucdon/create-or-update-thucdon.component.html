@@ -1,0 +1,9 @@
+<div class="modal-body">
+    <input class="form-control" *ngIf="thucDon==null" [(ngModel)]="tenThucDon">
+    <input class="form-control" *ngIf="thucDon!=null" [(ngModel)]="thucDon.TenThucDon">
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <button type="button" *ngIf="thucDon==null"  (click)="addThucDon()" class="btn btn-primary">Save changes</button>
+  <button type="button" *ngIf="thucDon!=null" (click)="suaThucDon(thucDon)" class="btn btn-primary">Save changes</button>
+</div>
