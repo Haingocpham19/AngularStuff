@@ -9,6 +9,8 @@ using RestaurantManagement.Data.EF;
 using RestaurantManagement.Data.Entities;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using System.Linq;
+using RestaurantManagement.Dto;
 
 namespace RestaurantManagement.Controllers
 {
@@ -28,13 +30,25 @@ namespace RestaurantManagement.Controllers
         }
         // GET: api/MonAn
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MonAn>>> GetMonAns()
+        public async Task<IEnumerable<MonAnDto>> GetMonAns()
         {
-          if (_context.MonAns == null)
-          {
-              return NotFound();
-          }
-            return await _context.MonAns.ToListAsync();
+
+           var lstMonAn = _context.MonAns.ToListAsync().Result;
+           var lstThucDon = _context.ThucDons.ToArrayAsync().Result;
+
+            var query = from monAn in lstMonAn
+                        join thucDon in lstThucDon on monAn.MaThucDon equals thucDon.Id
+                        select new MonAnDto
+                        {
+                            Id = monAn.Id,
+                            AnhMonAn = monAn.AnhMonAn,
+                            TenMonAn = monAn.TenMonAn,
+                            TenThucDon = thucDon.TenThucDon,
+                            NgayTao = monAn.NgayTao,
+                            MaThucDon = monAn.MaThucDon
+                        };
+
+           return query.ToList();
         }
 
         // GET: api/MonAn/5
@@ -122,24 +136,24 @@ namespace RestaurantManagement.Controllers
 
         [Route("SaveFile")]
         [HttpPost]
-        public async Task<JsonResult> SaveFile(MonAn monAn)
+        public async Task<JsonResult> SaveFile()
         {
+            
             try
             {
                 var httpRequest = Request.Form;
                 var postFile = httpRequest.Files[0];
                 string fileName = postFile.FileName;
                 var physicalPath = _env.ContentRootPath + "/Images/" + fileName;
-
                 using (var stream = new FileStream(physicalPath,FileMode.Create))
                 {
                     postFile.CopyTo(stream);
                 }
-                return new JsonResult("Thêm ảnh thành công");
+                return new JsonResult(fileName);
             }
             catch (Exception)
             {
-                return new JsonResult("");
+                return new JsonResult("default.png");
             }
         }
     }

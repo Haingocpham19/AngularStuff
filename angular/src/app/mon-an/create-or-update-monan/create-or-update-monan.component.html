@@ -1,1 +1,18 @@
-<p>create-or-update-monan works!</p>
+<label>Tên món ăn</label>
+<input nz-input nzPlaceHolder="Tên món ăn" [(ngModel)]="dataItem.TenMonAn">
+<img class="mt-3" [src]="duongDanAnh" [(ngModel)]="dataItem.AnhMonAn" height="200px" width="200px">
+<input type="file" (change)="uploadAnh($event)">
+<div class="d-flex mt-3 justify-content-between">
+    <nz-select nzShowSearch nzPlaceHolder="Chọn 1 thực đơn" [(ngModel)]="thucDonId">
+        <nz-option *ngFor="let option of comboboxThucDon" [nzLabel]="option.TenThucDon" [nzValue]="option.Id"></nz-option>
+    </nz-select>
+    <!-- <button nz-button nzType="primary" (click)="save(true)">Save</button> -->
+</div>
+<div *nzModalFooter>
+    <button nz-button nzType="default" (click)="cancel()">
+        <i nz-icon nzType="close" nzTheme="outline"></i>Hủy bỏ
+    </button>
+    <button nz-button nzType="primary" (click)="save(true)">
+        <i nz-icon nzType="check" nzTheme="outline"></i>Lưu
+    </button>
+</div>

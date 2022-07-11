@@ -1,14 +1,2 @@
-<div class="modal-header">
-  <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
-  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<div class="modal-body">
-    <input class="form-control" [(ngModel)]="tenThucDon">
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-  <button type="button" *ngIf="thucDon==null"  (click)="addThucDon()" class="btn btn-primary">Save changes</button>
-  <button type="button" *ngIf="thucDon!=null" (click)="editThucDon(thucDon)" class="btn btn-primary">Save changes</button>
-</div>
+  <input nz-input nzPlaceHolder="Tên thực đơn" [(ngModel)]="tenThucDon">
+  <button type="button" (click)="save(true)" class="btn btn-primary">Save</button>

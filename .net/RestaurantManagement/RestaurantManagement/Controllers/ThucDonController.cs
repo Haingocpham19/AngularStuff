@@ -38,7 +38,7 @@ namespace RestaurantManagement.Controllers
         public JsonResult Post(ThucDon thucDon)
         {
             string query = @"Insert into ThucDons values
-            ('"+thucDon.TenThucDon+"')";
+            (N'"+thucDon.TenThucDon+"')";
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("HAINGOCPHAM");
             SqlDataReader myReader;
@@ -100,7 +100,7 @@ namespace RestaurantManagement.Controllers
         [HttpGet]
         public JsonResult GetComboboxThucDon()
         {
-            string query = @"Select TenThucDon from ThucDons";
+            string query = @"Select * from ThucDons";
             DataTable table = new DataTable();
             String sqlDataSource = _configuration.GetConnectionString("HAINGOCPHAM");
             SqlDataReader myReader;

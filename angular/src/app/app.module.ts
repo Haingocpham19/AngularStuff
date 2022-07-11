@@ -9,6 +9,13 @@ import { CreateOrUpdateThucdonComponent } from './thuc-don/create-or-update-thuc
 import { MonAnComponent } from './mon-an/mon-an.component';
 import { DsMonanComponent } from './mon-an/ds-monan/ds-monan.component';
 import { CreateOrUpdateMonanComponent } from './mon-an/create-or-update-monan/create-or-update-monan.component';
+import { NzButtonModule  } from 'ng-zorro-antd/button';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzInputModule } from 'ng-zorro-antd/input';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {SharedService} from './shared.service';
 import {HttpClientModule} from '@angular/common/http';
@@ -29,7 +36,13 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NzButtonModule,
+    NzTableModule,
+    NzModalModule,
+    BrowserAnimationsModule,
+    NzSelectModule,
+    NzInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input,Output, EventEmitter,ViewChild } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-create-or-update-thucdon',
@@ -8,19 +9,30 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class CreateOrUpdateThucdonComponent implements OnInit {
 
+  // @ViewChild('childModal') public childModal:ModalDirective;
+  saving = false;
   @Input() thucDon:any;
+  @Output() backListEvent = new EventEmitter<boolean>();
+
   tenThucDon:any;
   title:any;
 
   constructor(private service: SharedService) { }
 
   ngOnInit(): void {
-    this.tenThucDon = this.thucDon.tenThucDon;
     if(this.thucDon){
-      this.title = "Sửa thực đơn";
-    }else{
-      this.title = "Thêm thực đơn";
+      this.tenThucDon = this.thucDon.TenThucDon;
     }
+  }
+
+  save(isSave: boolean) {
+    if(isSave) {
+      if(!this.thucDon){
+        this.addThucDon();
+      }else{
+        this.editThucDon(this.thucDon);
+      }
+    } 
   }
 
   addThucDon(){
@@ -28,17 +40,17 @@ export class CreateOrUpdateThucdonComponent implements OnInit {
       tenThucDon:this.tenThucDon
     };
     this.service.themThucDon(val).subscribe(data => {
-      alert(data);
+      alert("đã thêm");
     });
   }
 
   editThucDon(thucDon:any){
     var val = {
       id:thucDon.Id,
-      tenThucDon:this.thucDon.tenThucDon
+      tenThucDon:this.tenThucDon
     };
     this.service.suaThucDon(val,thucDon.Id).subscribe(data =>{
-      alert(data);
+      alert("đã sửa");
     });
   }
 }

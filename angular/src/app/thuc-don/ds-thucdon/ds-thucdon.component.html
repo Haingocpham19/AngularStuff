@@ -4,39 +4,38 @@
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Danh sách thực đơn</h6>
         <div class="d-flex mt-3">
-            <button data-toggle="modal" data-target="#exampleModal"  style="width:150px;background-color:#3498db;color:#fff;border:none;border-radius: 2px;" (click)="addOrUpdateThucDon()">Thêm thực đơn</button>
+            <button nz-button nzType="primary"  (click)="addOrUpdateThucDon()">Thêm thực đơn</button>
         </div>    
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <nz-table #basicTable [nzData]="DanhSachThucDon"  nzBordered="true" >
                 <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Tên thực đơn</th>       
-                        <th>Thao tác</th>         
-                    </tr>
+                  <tr>
+                    <th>Id</th>
+                    <th>Tên thực đơn</th>
+                    <th>Thao tác</th>
+                  </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let thucdon of DanhSachThucDon">
-                        <td>{{thucdon.Id}} </td>
-                        <td>{{thucdon.TenThucDon}}</td>         
-                        <td>
-                            <button type="button" class="btn btn-primary mr-3" data-toggle="modal" data-target="#exampleModal" (click)="addOrUpdateThucDon(thucdon)">Sửa</button>
-                            <button type="button" class="btn btn-danger" (click)="deleteThucDon(thucdon.Id)">Xóa</button>
-                        </td>
-                    </tr>
+                  <tr *ngFor="let thucdon of basicTable.data">
+                    <td>{{thucdon.Id}}</td>
+                    <td>{{thucdon.TenThucDon}}</td>
+                    <td>
+                        <button nz-button nzType="primary" class="mr-3" (click)="addOrUpdateThucDon(thucdon)">Sửa</button>
+                        <button nz-button  nzType="primary" nzGhost (click)="deleteThucDon(thucdon.Id)">Xóa</button>
+                    </td>
+                  </tr>
                 </tbody>
-            </table>
+              </nz-table>
         </div>
     </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">      
-      <app-create-or-update-thucdon [thucDon]="dataItem"></app-create-or-update-thucdon>     
-    </div>
-  </div>
-</div>
+<!-- 
+<nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+ <app-create-or-update-thucdon *ngIf="viewShow === 'viewCreateOrUpdate'" [thucDon]="dataItem" (backListEvent)="onBackToList($event)"></app-create-or-update-thucdon>     
+</nz-modal> -->
+
+
+

@@ -1,1 +1,39 @@
-<p>ds-monan works!</p>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách món ăn</h6>
+        <div class="d-flex mt-3">
+            <button nz-button nzType="primary" (click)="addOrUpdateMonAn()">Thêm món ăn</button>
+        </div>    
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <nz-table #basicTable [nzData]="danhSachMonAn"  nzBordered="true" >
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Tên món ăn</th>
+                    <th>Tên thực đơn</th>
+                    <th>Ảnh món ăn</th>
+                    <th>Thao tác</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let monAn of basicTable.data">
+                    <td>{{monAn.Id}}</td>
+                    <td>{{monAn.TenMonAn}}</td>                 
+                    <td>{{monAn.TenThucDon}}</td>
+                    <td>
+                        <img src="{{rawUrlAnhMon}}/{{monAn.AnhMonAn}}" width="100px" height="100px">                       
+                    </td>
+                    <td>
+                        <button nz-button nzType="primary" class="mr-3" (click)="addOrUpdateMonAn(monAn)">Sửa</button>
+                        <button nz-button  nzType="primary" nzGhost (click)="deleteMonAn(monAn.Id)">Xóa</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </nz-table>
+        </div>
+    </div>
+</div>

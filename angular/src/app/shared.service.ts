@@ -8,8 +8,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SharedService {
 
+
   readonly ApiUrl = 'https://localhost:7045/api';
-  readonly ApiPhoto = 'http://localhost:7045/images';
+  readonly ApiPhoto = 'https://localhost:7045/Images';
   constructor(private http:HttpClient) {}
 
   layDSThucDon():Observable<any[]>{
@@ -33,13 +34,14 @@ export class SharedService {
   themMonAn(val:any):Observable<any[]>{
     return this.http.post<any>(this.ApiUrl+'/monAn',val);
   }
-  suaMonAn(val:any):Observable<any[]>{
-    return this.http.put<any>(this.ApiUrl+'/monAn',val);
+  suaMonAn(val:any,id:number):Observable<any[]>{
+    return this.http.put<any>(this.ApiUrl+'/monAn/'+id,val);
   }
-  xoaMonAn(val:any):Observable<any>{
-    return this.http.delete<any>(this.ApiUrl+'/monAn',val);
+  xoaMonAn(id:number):Observable<any>{
+    return this.http.delete<any>(this.ApiUrl+'/monAn/'+id);
   }
   taiAnh(val:any):Observable<any>{
     return this.http.post<any>(this.ApiUrl+'/monAn/saveFile',val);
   }
+  
 }
