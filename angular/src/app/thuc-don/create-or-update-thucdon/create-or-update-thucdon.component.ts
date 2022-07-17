@@ -1,38 +1,41 @@
 import { Component, OnInit,Input,Output, EventEmitter,ViewChild } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 import { ModalDirective } from 'ngx-bootstrap/modal';
+import { NzModalRef } from 'ng-zorro-antd/modal';
 
 @Component({
   selector: 'app-create-or-update-thucdon',
-  templateUrl: './create-or-update-thucdon.component.html',
-  styleUrls: ['./create-or-update-thucdon.component.scss']
+  templateUrl: './create-or-update-thucdon.component.html'
 })
 export class CreateOrUpdateThucdonComponent implements OnInit {
 
   // @ViewChild('childModal') public childModal:ModalDirective;
   saving = false;
-  @Input() thucDon:any;
+  @Input() dataItem:any;
   @Output() backListEvent = new EventEmitter<boolean>();
 
   tenThucDon:any;
   title:any;
 
-  constructor(private service: SharedService) { }
+  constructor(private service: SharedService, private modal: NzModalRef) { }
 
   ngOnInit(): void {
-    if(this.thucDon){
-      this.tenThucDon = this.thucDon.TenThucDon;
+    if(this.dataItem){
+      this.tenThucDon = this.dataItem.TenThucDon;
     }
   }
 
   save(isSave: boolean) {
     if(isSave) {
-      if(!this.thucDon){
+      if(!this.dataItem){
         this.addThucDon();
       }else{
-        this.editThucDon(this.thucDon);
+        this.editThucDon(this.dataItem);
       }
     } 
+  }
+  cancel(isSave?: boolean) {
+    this.modal.close(isSave);
   }
 
   addThucDon(){
@@ -40,7 +43,9 @@ export class CreateOrUpdateThucdonComponent implements OnInit {
       tenThucDon:this.tenThucDon
     };
     this.service.themThucDon(val).subscribe(data => {
-      alert("đã thêm");
+       if (data) {
+        this.cancel();
+      }
     });
   }
 
@@ -50,7 +55,7 @@ export class CreateOrUpdateThucdonComponent implements OnInit {
       tenThucDon:this.tenThucDon
     };
     this.service.suaThucDon(val,thucDon.Id).subscribe(data =>{
-      alert("đã sửa");
+      this.cancel();
     });
   }
 }

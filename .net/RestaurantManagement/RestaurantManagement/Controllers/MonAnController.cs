@@ -100,10 +100,11 @@ namespace RestaurantManagement.Controllers
         [HttpPost]
         public async Task<ActionResult<MonAn>> PostMonAn(MonAn monAn)
         {
-          if (_context.MonAns == null)
-          {
-              return Problem("Entity set 'RMDBContext.MonAns'  is null.");
-          }
+              if (_context.MonAns == null)
+              {
+                  return Problem("Entity set 'RMDBContext.MonAns'  is null.");
+              }
+            monAn.NgayTao = DateTime.Now;
             _context.MonAns.Add(monAn);
             await _context.SaveChangesAsync();
 

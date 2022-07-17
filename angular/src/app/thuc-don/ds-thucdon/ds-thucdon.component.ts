@@ -12,7 +12,6 @@ export class DsThucdonComponent implements OnInit {
 
   constructor(private service:SharedService,private modalService: NzModalService) { }
 
-  dataItem:any;
   DanhSachThucDon:any=[];
   dangThemSua:boolean = false;
   isVisible = false;
@@ -28,17 +27,20 @@ export class DsThucdonComponent implements OnInit {
   }
 
   addOrUpdateThucDon(thucDon?:any):void{
-    this.modalService.create({
+    let modal = this.modalService.create({
       nzTitle: thucDon?'Sửa thực đơn':'Thêm mới thực đơn',
       nzContent: CreateOrUpdateThucdonComponent,
       nzOkText: 'OK',
       nzCancelText: 'Cancel',
       nzComponentParams:{
-         thucDon
+        dataItem:thucDon
       },
       nzOnOk:()=>{
          this.refresh();
       }
+    });
+    modal.afterClose.subscribe(result => {
+      this.refresh();
     });
   }
 

@@ -5,8 +5,8 @@ import {ThucDonComponent} from './thuc-don/thuc-don.component';
 import { MonAnComponent } from './mon-an/mon-an.component';
 
 const routes: Routes = [
-  {path:'thucdon',component: ThucDonComponent},
-  {path:'monan',component: MonAnComponent}
+  {path:'thuc-don',component: ThucDonComponent},
+  {path:'mon-an',component: MonAnComponent}
 ];
 
 @NgModule({

@@ -23,7 +23,7 @@
                     <td>{{thucdon.TenThucDon}}</td>
                     <td>
                         <button nz-button nzType="primary" class="mr-3" (click)="addOrUpdateThucDon(thucdon)">Sửa</button>
-                        <button nz-button  nzType="primary" nzGhost (click)="deleteThucDon(thucdon.Id)">Xóa</button>
+                        <button nz-button  nzType="primary" nzDanger (click)="deleteThucDon(thucdon.Id)">Xóa</button>
                     </td>
                   </tr>
                 </tbody>

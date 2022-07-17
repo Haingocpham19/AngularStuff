@@ -10297,19 +10297,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Orenda\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Orenda\\OneDrive\\Desktop\\AngularStuff\\AngularStuff\\.net\\RestaurantManagement\\RestaurantManagement\\RestaurantManagement.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\internship angular\\AngularStuff\\.net\\RestaurantManagement\\RestaurantManagement\\RestaurantManagement.csproj",
       "projectName": "RestaurantManagement",
-      "projectPath": "C:\\Users\\Orenda\\OneDrive\\Desktop\\AngularStuff\\AngularStuff\\.net\\RestaurantManagement\\RestaurantManagement\\RestaurantManagement.csproj",
-      "packagesPath": "C:\\Users\\Orenda\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Orenda\\OneDrive\\Desktop\\AngularStuff\\AngularStuff\\.net\\RestaurantManagement\\RestaurantManagement\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\internship angular\\AngularStuff\\.net\\RestaurantManagement\\RestaurantManagement\\RestaurantManagement.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\internship angular\\AngularStuff\\.net\\RestaurantManagement\\RestaurantManagement\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Orenda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10324,8 +10324,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Orenda\\OneDrive\\Desktop\\AngularStuff\\AngularStuff\\.net\\RestaurantManagement\\Model\\RestaurantManagement.Data.csproj": {
-              "projectPath": "C:\\Users\\Orenda\\OneDrive\\Desktop\\AngularStuff\\AngularStuff\\.net\\RestaurantManagement\\Model\\RestaurantManagement.Data.csproj"
+            "C:\\Users\\Admin\\Desktop\\internship angular\\AngularStuff\\.net\\RestaurantManagement\\Model\\RestaurantManagement.Data.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Desktop\\internship angular\\AngularStuff\\.net\\RestaurantManagement\\Model\\RestaurantManagement.Data.csproj"
             }
           }
         }
@@ -10385,7 +10385,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -6,8 +6,7 @@ import { CreateOrUpdateMonanComponent } from '../create-or-update-monan/create-o
 
 @Component({
   selector: 'app-ds-monan',
-  templateUrl: './ds-monan.component.html',
-  styleUrls: ['./ds-monan.component.scss']
+  templateUrl: './ds-monan.component.html'
 })
 export class DsMonanComponent implements OnInit {
 
@@ -34,7 +33,6 @@ export class DsMonanComponent implements OnInit {
   }
 
   addOrUpdateMonAn(monAn?:any){
-    debugger
    let modal = this.modalService.create({
       nzTitle: monAn?'Sửa món ăn':'Thêm mới món ăn',
       nzContent: CreateOrUpdateMonanComponent,
@@ -50,9 +48,7 @@ export class DsMonanComponent implements OnInit {
     modal.afterClose.subscribe(result => {
       this.refresh();
     });
-
-  }
-  
+  } 
   deleteMonAn(id:number):void{
     this.modalService.confirm({
       nzTitle: '<i>Bạn có muốn xóa món ăn này?</i>',
@@ -65,5 +61,4 @@ export class DsMonanComponent implements OnInit {
       }
     }); 
   }
-
 }

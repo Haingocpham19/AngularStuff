@@ -5,34 +5,33 @@ import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-create-or-update-monan',
-  templateUrl: './create-or-update-monan.component.html',
-  styleUrls: ['./create-or-update-monan.component.scss']
+  templateUrl: './create-or-update-monan.component.html'
 })
 export class CreateOrUpdateMonanComponent implements OnInit {
 
   @Input() dataItem: any;
   selectedValue = null;
-  // tenMonAn: any;
-  // anhMonAn: any;
   comboboxThucDon: any;
   duongDanAnh: any;
-  thucDonId: number = -1;
+  thucDonId: number = 1;
+  handler = "";
 
   constructor(private service: SharedService, private fb: FormBuilder, private modal: NzModalRef) {
 
   }
 
   ngOnInit(): void {
-    debugger
     if (this.dataItem) {
+      this.handler = "edit";
       this.duongDanAnh = this.service.ApiPhoto + "/" + this.dataItem.AnhMonAn;
       this.thucDonId = this.dataItem.MaThucDon;
     }
     else{
-      this.duongDanAnh = this.service.ApiPhoto;
+      this.handler = "add";
+      this.duongDanAnh = this.service.ApiPhoto + "/" + "default.png";
       this.dataItem = {
-        tenMonAn: '',
-
+        TenMonAn:'',
+        AnhMonAn:'default.png'
       };
     }
     this.service.getComboxThucDon().subscribe(result => {
@@ -41,46 +40,39 @@ export class CreateOrUpdateMonanComponent implements OnInit {
     })
   }
 
-
   save(isSave: boolean) {
+    debugger
     if (isSave) {
-      if (!this.dataItem) {
+      if (this.handler == "add") {
         this.addMonAn();
-      } else {
+      } else if(this.handler == "edit") {
         this.editMonAn(this.dataItem);
       }
     }
   }
 
   addMonAn() {
-    let date = Date.now();
-    debugger
     var val = {
       tenMonAn: this.dataItem.TenMonAn,
       maThucDon: this.thucDonId,
-      ngayTao: "2022-07-08T10:43:14.184Z",
       anhMonAn: this.dataItem.AnhMonAn
     };
     this.service.themMonAn(val).subscribe(data => {
       if (data) {
         this.cancel();
-        //alert("đã thêm");
       }
     });
   }
 
   editMonAn(monAn: any) {
-    debugger
     var val = {
       id: monAn.Id,
       tenMonAn: this.dataItem.TenMonAn,
       maThucDon: this.thucDonId,
-      ngayTao: "2022-07-08T10:43:14.184Z",
       anhMonAn: this.dataItem.AnhMonAn
     };
     this.service.suaMonAn(val, monAn.Id).subscribe(data => {
       this.cancel();
-      //alert("đã sửa");
     });
   }
   cancel(isSave?: boolean) {

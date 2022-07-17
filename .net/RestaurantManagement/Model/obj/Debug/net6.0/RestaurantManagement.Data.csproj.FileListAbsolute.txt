@@ -46,3 +46,19 @@ C:\Users\Orenda\OneDrive\Desktop\AngularStuff\AngularStuff\.net\RestaurantManage
 C:\Users\Orenda\OneDrive\Desktop\AngularStuff\AngularStuff\.net\RestaurantManagement\Model\obj\Debug\net6.0\RestaurantManagement.Data.pdb
 C:\Users\Orenda\OneDrive\Desktop\AngularStuff\AngularStuff\.net\RestaurantManagement\Model\obj\Debug\net6.0\RestaurantManagement.Data.genruntimeconfig.cache
 C:\Users\Orenda\OneDrive\Desktop\AngularStuff\AngularStuff\.net\RestaurantManagement\Model\obj\Debug\net6.0\ref\RestaurantManagement.Data.dll
+C:\Users\Admin\Desktop\internship angular\AngularStuff\.net\RestaurantManagement\Model\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Admin\Desktop\internship angular\AngularStuff\.net\RestaurantManagement\Model\bin\Debug\net6.0\appsettings.json
+C:\Users\Admin\Desktop\internship angular\AngularStuff\.net\RestaurantManagement\Model\bin\Debug\net6.0\RestaurantManagement.Data.deps.json
+C:\Users\Admin\Desktop\internship angular\AngularStuff\.net\RestaurantManagement\Model\bin\Debug\net6.0\RestaurantManagement.Data.runtimeconfig.json
+C:\Users\Admin\Desktop\internship angular\AngularStuff\.net\RestaurantManagement\Model\bin\Debug\net6.0\RestaurantManagement.Data.dll
+C:\Users\Admin\Desktop\internship angular\AngularStuff\.net\RestaurantManagement\Model\bin\Debug\net6.0\RestaurantManagement.Data.pdb
+C:\Users\Admin\Desktop\internship angular\AngularStuff\.net\RestaurantManagement\Model\obj\Debug\net6.0\RestaurantManagement.Data.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\internship angular\AngularStuff\.net\RestaurantManagement\Model\obj\Debug\net6.0\RestaurantManagement.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\internship angular\AngularStuff\.net\RestaurantManagement\Model\obj\Debug\net6.0\RestaurantManagement.Data.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\internship angular\AngularStuff\.net\RestaurantManagement\Model\obj\Debug\net6.0\RestaurantManagement.Data.AssemblyInfo.cs
+C:\Users\Admin\Desktop\internship angular\AngularStuff\.net\RestaurantManagement\Model\obj\Debug\net6.0\RestaurantManagement.Data.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\internship angular\AngularStuff\.net\RestaurantManagement\Model\obj\Debug\net6.0\RestaurantManagement.Data.dll
+C:\Users\Admin\Desktop\internship angular\AngularStuff\.net\RestaurantManagement\Model\obj\Debug\net6.0\refint\RestaurantManagement.Data.dll
+C:\Users\Admin\Desktop\internship angular\AngularStuff\.net\RestaurantManagement\Model\obj\Debug\net6.0\RestaurantManagement.Data.pdb
+C:\Users\Admin\Desktop\internship angular\AngularStuff\.net\RestaurantManagement\Model\obj\Debug\net6.0\RestaurantManagement.Data.genruntimeconfig.cache
+C:\Users\Admin\Desktop\internship angular\AngularStuff\.net\RestaurantManagement\Model\obj\Debug\net6.0\ref\RestaurantManagement.Data.dll

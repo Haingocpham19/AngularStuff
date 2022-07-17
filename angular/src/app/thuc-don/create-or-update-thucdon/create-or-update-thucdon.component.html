@@ -1,2 +1,9 @@
   <input nz-input nzPlaceHolder="Tên thực đơn" [(ngModel)]="tenThucDon">
-  <button type="button" (click)="save(true)" class="btn btn-primary">Save</button>
+  <div *nzModalFooter>
+    <button nz-button nzType="default" (click)="cancel()">
+        <i nz-icon nzType="close" nzTheme="outline"></i>Hủy bỏ
+    </button>
+    <button nz-button nzType="primary" (click)="save(true)">
+        <i nz-icon nzType="check" nzTheme="outline"></i>Lưu
+    </button>
+</div>

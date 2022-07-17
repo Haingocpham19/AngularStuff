@@ -6,7 +6,6 @@
     <nz-select nzShowSearch nzPlaceHolder="Chọn 1 thực đơn" [(ngModel)]="thucDonId">
         <nz-option *ngFor="let option of comboboxThucDon" [nzLabel]="option.TenThucDon" [nzValue]="option.Id"></nz-option>
     </nz-select>
-    <!-- <button nz-button nzType="primary" (click)="save(true)">Save</button> -->
 </div>
 <div *nzModalFooter>
     <button nz-button nzType="default" (click)="cancel()">
